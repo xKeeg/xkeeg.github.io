@@ -1,4 +1,4 @@
-animationDelay = 400;
+animationDelay = 200;
 minSearchTime = 100;
 var manager;
 

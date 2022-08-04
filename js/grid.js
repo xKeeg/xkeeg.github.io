@@ -121,12 +121,9 @@ Grid.prototype.addStartTiles = function () {
 };
 
 // Adds a tile in a random position
-Grid.prototype.addRandomTile = function () {
+Grid.prototype.addRandomTile = function (multiplier) {
   if (this.cellsAvailable()) {
-    var value = Math.random() < 0.9 ? 2 : 4;
-    //var value = Math.random() < 0.9 ? 256 : 512;
-    var tile = new Tile(this.randomAvailableCell(), value);
-
+    var tile = new Tile(this.randomAvailableCell(), multiplier);
     this.insertTile(tile);
   }
 };

@@ -24,6 +24,7 @@
     <div class="heading">
       <h1 class="title">Bakery</h1>
       <div class="reset-button">Reset</div>
+
     </div>
     <p class="game-intro">Combine the baked goods to reach the <strong>huge cake!</strong></p>
 
@@ -75,6 +76,7 @@
       <img onclick="changeMultiplier(this)" class="active" src="img/1x.png" alt="2">
       <img onclick="changeMultiplier(this)" class="inactive" src="img/x4.png" alt="8">
       <img onclick="changeMultiplier(this)" class="inactive" src="img/x8.png" alt="16">
+
     </div>
     <p class="game-explanation">
 
@@ -84,15 +86,17 @@
       Add your own tiles by <strong>clicking</strong> the cell you want it to appear in. <strong>Consecutive
         clicks</strong> will increase the <strong>value</strong> of
       the tile. Once you have done this, you can follow the <strong>swipe direction displayed above the grid.</strong>
+
       <hr>
 
       <strong class="important">About: </strong>This is an implementation of a 2048 solver, adpated for the
       IdleAngels bakery event.<br>
       <hr>
       <em class="minor">Minor visual bugs can be fixed by resetting your board. </em>
-
-
     </p>
+
+    <div id="run-button">Test the AI</div>
+
     <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
     <script>
       kofiWidgetOverlay.draw('keeganm', {

@@ -75,11 +75,11 @@ KeyboardInputManager.prototype.listen = function () {
   //   self.emit('add-tile-prompt');
   // });
 
-  // var runButton = document.getElementById('run-button');
-  // runButton.addEventListener('click', function (e) {
-  //   e.preventDefault();
-  //   self.emit('run')
-  // })
+  var runButton = document.getElementById('run-button');
+  runButton.addEventListener('click', function (e) {
+    e.preventDefault();
+    self.emit('run')
+  })
 
   var gridCells = document.getElementsByClassName('grid-cell');
   gridCells = Array.from(gridCells);
