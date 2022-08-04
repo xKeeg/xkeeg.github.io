@@ -1,0 +1,54 @@
+.controls {
+  margin-top: 1em;
+  padding: 0.5em 0;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.controls p {
+  font-weight: bold;
+  padding: 10px;
+  font-size: x-large;
+  flex: 1;
+}
+
+.tile-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tile-switcher img {
+  margin: 10px;
+}
+
+.tile-switcher img:hover {
+  cursor: pointer;
+}
+
+.inactive {
+  opacity: 30%;
+}
+
+
+.ai-button, #feedback-container {
+  font-size: 36px;
+  flex: 2
+}
+
+
+
+#feedback-container {
+  width:50%;
+  text-align: center;
+}
+
+#feedback-container {
+  background: #ad9f91;
+  color: #f9f6f2;
+  font-weight: bold;
+  border-radius: 15px;
+}

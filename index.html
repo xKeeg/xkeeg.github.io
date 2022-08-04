@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Bakery</title>
+
+  <link href="style/main.css" rel="stylesheet" type="text/css">
+  <link href="style/ai.css" rel="stylesheet" type="text/css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico?v=2" />
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport"
+    content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+
+  <meta property="og:title" content="2048 game" />
+  <meta property="og:site_name" content="2048 game" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="heading">
+      <h1 class="title">Bakery</h1>
+      <div class="reset-button">Reset</div>
+    </div>
+    <p class="game-intro">Combine the baked goods to reach the <strong>huge cake!</strong></p>
+
+    <div class="controls">
+      <div id="feedback-container">Place a tile</div>
+      <!-- <div id="run-button-container">
+        <button id="run-button" class="ai-button">Auto-run</button>
+      </div> -->
+    </div>
+
+    <div class="game-container">
+      <div class="game-message">
+        <p></p>
+      </div>
+
+      <div class="grid-container">
+        <div class="grid-row">
+          <div class="grid-cell" id="cell00"></div>
+          <div class="grid-cell" id="cell10"></div>
+          <div class="grid-cell" id="cell20"></div>
+          <div class="grid-cell" id="cell30"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell" id="cell01"></div>
+          <div class="grid-cell" id="cell11"></div>
+          <div class="grid-cell" id="cell21"></div>
+          <div class="grid-cell" id="cell31"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell" id="cell02"></div>
+          <div class="grid-cell" id="cell12"></div>
+          <div class="grid-cell" id="cell22"></div>
+          <div class="grid-cell" id="cell32"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell" id="cell03"></div>
+          <div class="grid-cell" id="cell13"></div>
+          <div class="grid-cell" id="cell23"></div>
+          <div class="grid-cell" id="cell33"></div>
+        </div>
+      </div>
+
+      <div class="tile-container">
+
+      </div>
+    </div>
+
+    <div class="tile-switcher">
+      <img onclick="changeMultiplier(this)" class="active" src="img/1x.png" alt="2">
+      <img onclick="changeMultiplier(this)" class="inactive" src="img/x4.png" alt="8">
+      <img onclick="changeMultiplier(this)" class="inactive" src="img/x8.png" alt="16">
+    </div>
+    <p class="game-explanation">
+
+      <strong class="important">To use: </strong> Move the tiles with a <strong>Swipe </strong>or use your <strong>Arrow
+        Keys</strong><br><br>
+
+      Add your own tiles by <strong>clicking</strong> the cell you want it to appear in. <strong>Consecutive
+        clicks</strong> will increase the <strong>value</strong> of
+      the tile. Once you have done this, you can follow the <strong>swipe direction displayed above the grid.</strong>
+      <hr>
+
+      <strong class="important">About: </strong>This is an implementation of a 2048 solver, adpated for the
+      IdleAngels bakery event.<br>
+      <hr>
+      <em class="minor">Minor visual bugs can be fixed by resetting your board. </em>
+
+
+    </p>
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <script>
+      kofiWidgetOverlay.draw('keeganm', {
+        'type': 'floating-chat',
+        'floating-chat.donateButton.text': 'Support me',
+        'floating-chat.donateButton.background-color': '#00b9fe',
+        'floating-chat.donateButton.text-color': '#fff'
+      });
+    </script>
+
+
+
+
+    <script src="js/animframe_polyfill.js"></script>
+    <script src="js/hammer.min.js"></script>
+    <script src="js/keyboard_input_manager.js"></script>
+    <script src="js/html_actuator.js"></script>
+    <script src="js/grid.js"></script>
+    <script src="js/tile.js"></script>
+    <script src="js/ai.js"></script>
+    <script src="js/game_manager.js"></script>
+    <script src="js/application.js"></script>
+
+
+</body>
+
+</html>
