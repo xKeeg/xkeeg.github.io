@@ -130,7 +130,10 @@ Grid.prototype.addRandomTile = function (multiplier) {
 
 Grid.prototype.addRandomTileValue = function (multiplier) {
   if (this.cellsAvailable()) {
-    var value = multiplier
+    if (multiplier == 2)
+      var value = Math.random() < 0.9 ? 2 : 4;
+    else var value = multiplier
+
     //var value = Math.random() < 0.9 ? 256 : 512;
     var tile = new Tile(this.randomAvailableCell(), value);
 
