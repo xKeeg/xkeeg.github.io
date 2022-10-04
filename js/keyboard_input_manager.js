@@ -20,8 +20,6 @@ KeyboardInputManager.prototype.emit = function (event, data) {
   }
 };
 
-
-
 KeyboardInputManager.prototype.listen = function () {
   var self = this;
 
@@ -33,23 +31,30 @@ KeyboardInputManager.prototype.listen = function () {
     75: 0, // vim keybindings
     76: 1,
     74: 2,
-    72: 3
+    72: 3,
   };
+
+  document
+    .getElementById("feedback-container")
+    .addEventListener("click", function (event) {
+      if (event.target.outerText !== "Place a tile") {
+        self.emit("move", ["↑", "→", "↓", "←"].indexOf(event.target.outerText));
+      }
+    });
 
   // Move Handler
   document.addEventListener("keydown", function (event) {
-    var modifiers = event.altKey || event.ctrlKey || event.metaKey ||
-      event.shiftKey;
+    var modifiers =
+      event.altKey || event.ctrlKey || event.metaKey || event.shiftKey;
     var mapped = map[event.which];
 
     if (!modifiers) {
       if (mapped !== undefined) {
         event.preventDefault();
-        var feedbackContainer = document.getElementById('feedback-container');
-        feedbackContainer.innerHTML = ' ';
+        var feedbackContainer = document.getElementById("feedback-container");
+        feedbackContainer.innerHTML = " ";
         self.emit("move", mapped);
-        self.emit('think');
-
+        self.emit("think");
       }
 
       if (event.which === 32) self.restart.bind(self)(event);
@@ -59,7 +64,6 @@ KeyboardInputManager.prototype.listen = function () {
   // Deprecated
   var reset = document.getElementsByClassName("reset-button")[0];
   reset.addEventListener("click", this.restart.bind(this));
-
 
   // var hintButton = document.getElementById('hint-button');
   // hintButton.addEventListener('click', function (e) {
@@ -75,35 +79,38 @@ KeyboardInputManager.prototype.listen = function () {
   //   self.emit('add-tile-prompt');
   // });
 
-  var runButton = document.getElementById('run-button');
-  runButton.addEventListener('click', function (e) {
+  var runButton = document.getElementById("run-button");
+  runButton.addEventListener("click", function (e) {
     e.preventDefault();
-    self.emit('run')
-  })
+    self.emit("run");
+  });
 
-  var gridCells = document.getElementsByClassName('grid-cell');
+  var gridCells = document.getElementsByClassName("grid-cell");
   gridCells = Array.from(gridCells);
 
-  gridCells.forEach(cell => {
-    cell.addEventListener('click', function (e) {
+  gridCells.forEach((cell) => {
+    cell.addEventListener("click", function (e) {
       e.preventDefault();
       var pos = cell.id.slice(-2);
       console.dir(pos);
       console.dir(cell);
-      self.emit('cell-clicked', pos);
-      self.emit('think');
-    })
-  })
-
+      self.emit("cell-clicked", pos);
+      self.emit("think");
+    });
+  });
 
   // Listen to swipe events
-  var gestures = [Hammer.DIRECTION_UP, Hammer.DIRECTION_RIGHT,
-  Hammer.DIRECTION_DOWN, Hammer.DIRECTION_LEFT];
+  var gestures = [
+    Hammer.DIRECTION_UP,
+    Hammer.DIRECTION_RIGHT,
+    Hammer.DIRECTION_DOWN,
+    Hammer.DIRECTION_LEFT,
+  ];
 
   var gameContainer = document.getElementsByClassName("game-container")[0];
   var handler = Hammer(gameContainer, {
     drag_block_horizontal: true,
-    drag_block_vertical: true
+    drag_block_vertical: true,
   });
 
   handler.on("swipe", function (event) {
